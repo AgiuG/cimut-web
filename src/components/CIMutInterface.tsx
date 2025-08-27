@@ -59,7 +59,7 @@ export function CIMutInterface() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          remote_file_path: filePath,
+          file_path: filePath,
           line_number: parseInt(lineNumber),
         }),
       });

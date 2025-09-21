@@ -226,22 +226,22 @@ export function CIMutInterface() {
 - Reason: ${data.mutation_suggestion.modifications[0]?.reason}
 
 **Original Content:**
-\`${data.mutation_infos.mutation.old_content}\`
+\`${data.mutation_infos.mutation[0]?.old_content}\`
 
 **New Content:**
-\`${data.mutation_infos.mutation.new_content}\`
+\`${data.mutation_infos.mutation[0]?.new_content}\`
 
-**Backup created at:** ${data.mutation_infos.mutation.backup_path}`,
+**Backup created at:** ${data.mutation_infos.mutation[0]?.backup_path}`,
           timestamp: new Date(),
         };
         
         setChatMessages(prev => [...prev, assistantMessage]);
         
         // Auto-fill manual form with the suggestion
-        setFilePath(data.mutation_infos.mutation.file_path);
-        setLineNumber(data.mutation_infos.mutation.line_number.toString());
-        setNewContent(data.mutation_infos.mutation.new_content);
-        
+        setFilePath(data.mutation_infos.mutation[0]?.file_path);
+        setLineNumber(data.mutation_infos.mutation[0]?.line_number.toString());
+        setNewContent(data.mutation_infos.mutation[0]?.new_content);
+
         toast({
           title: "Fault Found",
           description: "Mutation suggestion generated successfully",
